@@ -50,10 +50,6 @@ public class UserModel extends AuditModel {
 
     @Column(unique = false, updatable = true, nullable = false)
     @Enumerated(EnumType.STRING)
-    private Scope scope;
-
-    @Column(unique = false, updatable = true, nullable = false)
-    @Enumerated(EnumType.STRING)
     private Role role;
 
     @OneToOne
@@ -65,12 +61,11 @@ public class UserModel extends AuditModel {
     }
 
     public UserModel(@NotBlank String username, @NotBlank String fullName, @NotBlank String email,
-            @NotBlank String hashedPassword, Scope scope, Role role, TenantModel tenantModel) {
+            @NotBlank String hashedPassword, Role role, TenantModel tenantModel) {
         this.username = username;
         this.fullName = fullName;
         this.email = email;
         this.hashedPassword = hashedPassword;
-        this.scope = scope;
         this.role = role;
         this.tenantModel = tenantModel;
     }
@@ -113,14 +108,6 @@ public class UserModel extends AuditModel {
 
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
-    }
-
-    public Scope getScope() {
-        return scope;
-    }
-
-    public void setScope(Scope scope) {
-        this.scope = scope;
     }
 
     public Role getRole() {

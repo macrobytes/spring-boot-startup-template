@@ -28,8 +28,7 @@ public class DevSetup {
                 if (localDevelopment) {
                         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10, new SecureRandom());
                         userService.create(new UserModel(DEV_USERNAME, DEV_FULL_NAME, DEV_EMAIL,
-                                        passwordEncoder.encode(DEV_PASSWORD), UserModel.Scope.ROOT,
-                                        UserModel.Role.OWNER, null));
+                                        passwordEncoder.encode(DEV_PASSWORD), UserModel.Role.OWNER, null));
                 }
         }
 }
